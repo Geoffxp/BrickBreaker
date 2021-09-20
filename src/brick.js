@@ -22,7 +22,7 @@ export default class Brick {
 
     update() {
         if (specialCollision(this.game.gameObjects, this, this.game)) {
-            new Audio("../assests/audio/bricksound.wav").play()
+            document.querySelector("#bricksound").play()
             this.removeBrick = true;
         }
     }
