@@ -1,4 +1,5 @@
 import Ball from "./ball.js";
+import Rocket from "./rocket.js";
 
 export function paddleCollision(ball, paddle) {
     if (distance(ball, paddle) <= 5) {
@@ -47,8 +48,26 @@ export function objCollision(ball, obj, game) {
     return false
 }
 
+export function rocketCollision(rocket, obj, game) {
+    if (
+        rocket.position.y < obj.position.y &&
+        (rocket.position.x > obj.position.x &&
+        rocket.position.x < obj.position.x + obj.width) ||
+        (rocket.position.y < obj.position.y &&
+        rocket.position.x + rocket.width > obj.position.x &&
+        rocket.position.x < obj.position.x + obj.width)
+        ) {
+        if (obj.type && obj.type === "plus1") {
+            game.addBall(new Ball(game, "moving"))
+        }
+        return true;
+    }
+    return false;
+}
+
 export function specialCollision(balls, obj, game) {
     let hit = 0
+    if (obj.isRocket) return
     balls.forEach(ball => {
         if (distance(ball, obj) <= 5) {
             if (obj.isPaddle) {
@@ -61,6 +80,9 @@ export function specialCollision(balls, obj, game) {
                 ball.hitPaddle = false;
                 if (obj.type && obj.type === "plus1") {
                     game.addBall(new Ball(game, "moving"))
+                }
+                if (obj.type && obj.type === "rocketBrick") {
+                    game.addRocket(new Rocket(game, "attached"))
                 }
                 if (
                     ball.center.y < obj.position.y + obj.height &&

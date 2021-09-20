@@ -45,7 +45,7 @@ export default class Ball {
             y: -5
         }
         this.state = "moving"
-        new Audio("../assests/audio/startsound.wav").play()
+        new Audio("../assets/audio/startsound.wav").play()
     }
 
     update() {
@@ -61,19 +61,21 @@ export default class Ball {
             this.center.x += this.game.paddle.speed
         } else {
             if (this.position.y + this.size > this.gameHeight && this.game.specialBalls < 1) {
-                this.game.start();
+                console.log("reset")
+                this.remove();
+                this.game.reset();
             }
             if (this.position.y + this.size > this.gameHeight && this.game.specialBalls >= 1) {
                 this.remove();
             }
             if (this.position.x + this.size > this.gameWidth || this.position.x < 0) {
                 this.speed.x = -this.speed.x;
-                new Audio("../assests/audio/wallsound.wav").play()
+                new Audio("../assets/audio/wallsound.wav").play()
                 this.hitPaddle = false;
             }
             if (this.position.y < 0) {
                 this.speed.y = -this.speed.y;
-                new Audio("../assests/audio/wallsound.wav").play()
+                new Audio("../assets/audio/wallsound.wav").play()
                 this.hitPaddle = false;
             }
             this.position.x += this.speed.x;

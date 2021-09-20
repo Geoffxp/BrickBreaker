@@ -23,7 +23,6 @@ export default class Paddle {
     }
 
     draw(ctx) {
-        ctx.fillStyle = "#66FFB2"
         ctx.drawImage(
             this.image,
             this.position.x,
@@ -55,7 +54,7 @@ export default class Paddle {
             this.center.x = this.gameWidth - this.width / 2
         }
         if (specialCollision(this.game.gameObjects, this)) {
-            new Audio("../assests/audio/paddlesound.wav").play()
+            new Audio("../assets/audio/paddlesound.wav").play()
         }
         this.position.x += this.speed;
         this.center.x += this.speed;

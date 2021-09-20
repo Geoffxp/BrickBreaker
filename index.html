@@ -2,6 +2,8 @@
     <head>
         <title>Brick Breaker</title>
         <meta charset="UTF-8" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
         <style>
             #gameScreen {
                 border: 1px solid black
@@ -9,15 +11,43 @@
             img {
                 display: none;
             }
+            .btn-lg {
+                width: 250px;
+                height: 125px;
+            }
+            .btn-sm {
+                width: 200px;
+            }
+            .instructions {
+                position: absolute;
+                margin: 180px;
+            }
         </style>
     </head>
-    <body>
-        <img id="gitBall" src="assests/images/gitball.png" alt="gitball" />
-        <img id="brickImg" src="assests/images/brick.png" alt="brickImg" />
-        <img id="paddleImg" src="assests/images/paddle.png" alt="paddleImg" />
-        <img id="brickPlusOneImg" src="assests/images/brickplus1.png" alt="brickplus" />
-        <audio id="bricksound" src="assests/audio/bricksound.wav"></audio>
-        <canvas id="gameScreen" width="800px" height="600px"></canvas>
+    <body class="pt-5 d-flex justify-content-center">
+        <div class="d-flex flex-column">
+            <div id="instructions" class="instructions">
+                <h3 class=text-center>INSTRUCTIONS</h3>
+                <h3 class=text-center>SPACE TO START / SHOOT ROCKET</h3>
+                <h3 class=text-center>ARROW KEYS TO MOVE PADDLE</h3>
+                <h3 class=text-center>IF ON MOBILE USE BUTTONS</h3>
+            </div>
+            <div>
+                <img id="gitBall" src="assets/images/gitball.png" alt="gitball" />
+                <img id="brickImg" src="assets/images/brick.png" alt="brickImg" />
+                <img id="paddleImg" src="assets/images/paddle.png" alt="paddleImg" />
+                <img id="brickPlusOneImg" src="assets/images/brickplus1.png" alt="brickplus" />
+                <img id="rocketBrickImg" src="assets/images/rocketbrick.png" alt="rocketbrick" />
+                <img id="rocketImg" src="assets/images/rocket.png" alt="rocket" />
+                <audio id="bricksound" src="assets/audio/bricksound.wav"></audio>
+                <canvas id="gameScreen" width="800px" height="600px"></canvas>
+            </div>
+            <div class="d-flex flex-row justify-content-between">
+                <button id="goLeft" class="btn btn-lg btn-primary">&lt</button>
+                <button id="start" class="btn btn-sm btn-secondary">START</button>
+                <button id="goRight" class="btn btn-lg btn-primary">&gt</button>
+            </div>
+        </div>
         <script type="module" src="src/index.js"></script>
     </body>
 </html>

@@ -1,4 +1,4 @@
-import { objCollision, specialCollision } from "./collision.js";
+import { objCollision, rocketCollision, specialCollision } from "./collision.js";
 
 export default class Brick {
     constructor(game, position, type) {
@@ -15,6 +15,8 @@ export default class Brick {
         this.type = type;
         if (this.type === "plus1") {
             this.image = document.getElementById("brickPlusOneImg");
+        } else if(this.type === "rocketBrick") {
+            this.image = document.getElementById("rocketBrickImg");
         } else {
             this.image = document.getElementById("brickImg");
         }
@@ -22,7 +24,11 @@ export default class Brick {
 
     update() {
         if (specialCollision(this.game.gameObjects, this, this.game)) {
-            document.querySelector("#bricksound").play()
+            new Audio("../assets/audio/bricksound.wav").play();
+            this.removeBrick = true;
+        }
+        if (this.game.rocket && rocketCollision(this.game.rocket, this, this.game)) {
+            new Audio("../assets/audio/bricksound.wav").play();
             this.removeBrick = true;
         }
     }
