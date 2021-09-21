@@ -1,7 +1,7 @@
 export default class MusicPlayer {
     constructor() {
         this.theme = document.getElementById("theme");
-        this.loseLife = document.getElementById("loseLife")
+        this.loseLife = document.getElementById("loseLife");
         this.levelup = document.getElementById("nextLevel");
         this.winner = document.getElementById("winner");
         this.loser = document.getElementById("loser");

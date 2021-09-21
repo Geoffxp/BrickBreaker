@@ -12,7 +12,6 @@ let music = new MusicPlayer();
 let game = new Game(GAME_WIDTH, GAME_HEIGHT, music)
 
 game.start();
-music.play();
 const delay = (ms) => new Promise(res => setTimeout(res, ms));
 async function gameLoop() {
 

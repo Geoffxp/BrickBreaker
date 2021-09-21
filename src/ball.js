@@ -48,6 +48,7 @@ export default class Ball {
             y: -5
         }
         this.state = "moving"
+        this.game.music.play();
         if (!this.soundsBtn.classList.contains("pressed")) this.startSound.play()
     }
 
