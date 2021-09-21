@@ -21,7 +21,7 @@ export default class Paddle {
         this.go = 7;
         this.speed = 0;
         this.soundsBtn = document.getElementById("muteSounds");
-        this.paddleSound = new Audio("../assets/audio/paddlesound.wav");
+        this.paddleSound = new Audio("../assets/audio/paddlesound.mp3");
     }
 
     draw(ctx) {
@@ -56,7 +56,7 @@ export default class Paddle {
             this.center.x = this.gameWidth - this.width / 2
         }
         if (specialCollision(this.game.gameObjects, this)) {
-            if (!this.soundsBtn.classList.contains("pressed")) new Audio("../assets/audio/paddlesound.wav").play();
+            if (!this.soundsBtn.classList.contains("pressed")) new Audio("../assets/audio/paddlesound.mp3").play();
         }
         this.position.x += this.speed;
         this.center.x += this.speed;

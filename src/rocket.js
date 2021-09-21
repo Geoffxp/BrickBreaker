@@ -25,7 +25,7 @@ export default class Rocket {
         this.isRocket = true;
         this.isBrick = false;
         this.soundsBtn = document.getElementById("muteSounds");
-        this.rocketSound = new Audio("../assets/audio/sheesh.wav");
+        this.rocketSound = new Audio("../assets/audio/sheesh.mp3");
     }
 
     remove() {

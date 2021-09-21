@@ -1,6 +1,10 @@
 export default class MusicPlayer {
     constructor() {
         this.theme = document.getElementById("theme");
+        this.loseLife = document.getElementById("loseLife")
+        this.levelup = document.getElementById("nextLevel");
+        this.winner = document.getElementById("winner");
+        this.loser = document.getElementById("loser");
         this.musicBtn = document.getElementById("muteMusic");
         this.soundsBtn = document.getElementById("muteSounds");
         this.musicBtn.addEventListener("click", event => {
@@ -27,5 +31,27 @@ export default class MusicPlayer {
             this.currentTime = 0;
             this.play();
         }, false);
+    }
+    nextLevel() {
+        this.theme.pause();
+        this.levelup.play();
+        this.levelup.addEventListener("ended", () => this.theme.play())
+    }
+    win() {
+        this.theme.pause();
+        this.levelup.pause();
+        this.levelup.currentTime = 0;
+        this.winner.play();
+        this.winner.addEventListener("ended", () => this.theme.play())
+    }
+    lose() {
+        this.theme.pause();
+        this.loseLife.pause();
+        this.loseLife.currentTime = 0;
+        this.loser.play();
+        this.loser.addEventListener("ended", () => this.theme.play())
+    }
+    ouch() {
+        this.loseLife.play();
     }
 }

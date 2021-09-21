@@ -4,11 +4,13 @@ import InputHandler from "./input.js";
 import { build, levels } from "./levels.js"
 
 export default class Game {
-    constructor(gameWidth, gameHeight) {
+    constructor(gameWidth, gameHeight, music) {
         this.gameWidth = gameWidth;
         this.gameHeight = gameHeight;
+        this.music = music;
         this.level = 0;
-        this.lives = 3;
+        this.lives = 2;
+        this.bg = document.getElementById("bg");
     }
 
     start() {
@@ -33,6 +35,7 @@ export default class Game {
     }
 
     reset() {
+        this.music.ouch();
         this.lives--
         const bricks = this.gameObjects.filter(obj => obj.isBrick)
         this.rocket = null;
@@ -73,9 +76,11 @@ export default class Game {
     }
 
     draw(ctx) {
+        ctx.drawImage(this.bg, 0, 0)
         ctx.font = "20px monospace"
         ctx.fillText(`Lives: ${this.lives}`, 700, 20)
         ctx.fillText(`Level: ${this.level + 1}`, 10, 20)
+        
         this.gameObjects.forEach(obj => obj.draw(ctx));
     }
 }
