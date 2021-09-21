@@ -18,7 +18,7 @@ export default class Game {
         this.specialBalls = 0;
         new InputHandler(this.paddle, this.ball);
         const bricks = build(this, levels[this.level])
-
+        
         this.gameObjects = [
             this.ball,
             this.paddle,

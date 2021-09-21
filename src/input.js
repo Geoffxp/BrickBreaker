@@ -21,9 +21,12 @@ export default class InputHandler {
         document.addEventListener("keydown", event => {
             if (event.key === " " && ball.state !== "moving") {
                 document.getElementById("instructions").style.display ="none"
+                
+                theme.play();
                 ball.start();
             }
         })
+        
         document.addEventListener("keydown", event => {
             if (event.key === " " && rocket && rocket.state !== "moving") {
                 rocket.start();
@@ -51,7 +54,13 @@ export default class InputHandler {
         })
         startBtn.addEventListener("click", event => {
             if (ball.state !== "moving") {
+                document.getElementById("instructions").style.display ="none"
                 ball.start();
+            }
+        })
+        startBtn.addEventListener("click", event => {
+            if (rocket && rocket.state !== "moving") {
+                rocket.start();
             }
         })
         //TOUCH

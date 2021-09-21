@@ -1,5 +1,6 @@
 import Game from "./game.js";
 import { levels } from "./levels.js";
+import MusicPlayer from "./music.js";
 
 let canvas = document.getElementById("gameScreen");
 let ctx = canvas.getContext("2d");
@@ -8,7 +9,9 @@ const GAME_WIDTH = 800;
 const GAME_HEIGHT = 600;
 
 let game = new Game(GAME_WIDTH, GAME_HEIGHT)
+let music = new MusicPlayer();
 game.start();
+music.play();
 const delay = (ms) => new Promise(res => setTimeout(res, ms));
 async function gameLoop() {
 

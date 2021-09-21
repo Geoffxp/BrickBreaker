@@ -20,15 +20,17 @@ export default class Brick {
         } else {
             this.image = document.getElementById("brickImg");
         }
+        this.soundsBtn = document.getElementById("muteSounds");
+        this.brickSound = new Audio("../assets/audio/bricksound.wav")
     }
 
     update() {
         if (specialCollision(this.game.gameObjects, this, this.game)) {
-            new Audio("../assets/audio/bricksound.wav").play();
+            if (!this.soundsBtn.classList.contains("pressed")) this.brickSound.play();
             this.removeBrick = true;
         }
         if (this.game.rocket && rocketCollision(this.game.rocket, this, this.game)) {
-            new Audio("../assets/audio/bricksound.wav").play();
+            if (!this.soundsBtn.classList.contains("pressed")) this.brickSound.play();
             this.removeBrick = true;
         }
     }
