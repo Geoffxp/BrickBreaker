@@ -21,7 +21,7 @@ export default class Brick {
             this.image = document.getElementById("brickImg");
         }
         this.soundsBtn = document.getElementById("muteSounds");
-        this.brickSound = new Audio("../assets/audio/bricksound.wav")
+        this.brickSound = new Audio("../assets/audio/bricksound.mp3")
     }
 
     update() {
