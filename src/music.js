@@ -26,6 +26,7 @@ export default class MusicPlayer {
     }
 
     play() {
+        this.theme.muted = false;
         this.theme.play()
         this.theme.addEventListener('ended', function() {
             this.currentTime = 0;
@@ -33,11 +34,13 @@ export default class MusicPlayer {
         }, false);
     }
     nextLevel() {
+        this.levelup.muted = false;
         this.theme.pause();
         this.levelup.play();
         this.levelup.addEventListener("ended", () => this.theme.play())
     }
     win() {
+        this.winner.muted = false;
         this.theme.pause();
         this.levelup.pause();
         this.levelup.currentTime = 0;
@@ -45,6 +48,7 @@ export default class MusicPlayer {
         this.winner.addEventListener("ended", () => this.theme.play())
     }
     lose() {
+        this.loser.muted = false;
         this.theme.pause();
         this.loseLife.pause();
         this.loseLife.currentTime = 0;
@@ -52,6 +56,7 @@ export default class MusicPlayer {
         this.loser.addEventListener("ended", () => this.theme.play())
     }
     ouch() {
+        this.loseLife.muted = false;
         this.loseLife.play();
     }
 }
