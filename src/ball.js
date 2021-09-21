@@ -72,12 +72,12 @@ export default class Ball {
             }
             if (this.position.x + this.size > this.gameWidth || this.position.x < 0) {
                 this.speed.x = -this.speed.x;
-                if (!this.soundsBtn.classList.contains("pressed")) this.wallSound.play()
+                if (!this.soundsBtn.classList.contains("pressed")) new Audio("../assets/audio/wallsound.wav").play()
                 this.hitPaddle = false;
             }
             if (this.position.y < 0) {
                 this.speed.y = -this.speed.y;
-                if (!this.soundsBtn.classList.contains("pressed")) this.wallSound.play()
+                if (!this.soundsBtn.classList.contains("pressed")) new Audio("../assets/audio/wallsound.wav").play()
                 this.hitPaddle = false;
             }
             this.position.x += this.speed.x;
