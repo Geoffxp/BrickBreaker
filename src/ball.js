@@ -26,6 +26,7 @@ export default class Ball {
         this.wallSound = new Audio("../assets/audio/wallsound.mp3");
         this.startSound = new Audio("../assets/audio/startsound.mp3");
         this.soundsBtn = document.getElementById("muteSounds");
+        this.musicBtn = document.getElementById("muteMusic");
     }
     
     remove() {
@@ -48,8 +49,8 @@ export default class Ball {
             y: -5
         }
         this.state = "moving"
-        this.game.music.play();
-        if (!this.soundsBtn.classList.contains("pressed")) this.startSound.play()
+        if (!this.musicBtn.classList.contains("pressed")) this.game.music.play();
+        if (!this.soundsBtn.classList.contains("pressed")) this.startSound.play();
     }
 
     update() {

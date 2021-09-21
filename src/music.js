@@ -14,6 +14,7 @@ export default class MusicPlayer {
             } else {
                 this.musicBtn.classList.remove("pressed");
                 this.theme.muted = false;
+                this.theme.play();
             }
         })
         this.soundsBtn.addEventListener("click", event => {
